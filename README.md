@@ -1,5 +1,4 @@
-
-# Workshop file upload : Express/React Multer
+# Workshop Express/React 2/3 : FileUpload Multer
 
 ### Install dependencies
 Install the dependencies project with the command:
