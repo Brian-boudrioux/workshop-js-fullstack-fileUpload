@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const errorHandler = require("../middlewares/errorHandler");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 
 // import router
@@ -13,6 +14,7 @@ const apiRouter = require("../modules");
 const app = express();
 
 // apply global middlewares (!important: before any routes !)
+app.use(express.static(path.join(__dirname + "/../../public")));
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(helmet());
 app.use(express.json());

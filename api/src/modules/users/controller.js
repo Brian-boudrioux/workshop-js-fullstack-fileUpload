@@ -21,6 +21,19 @@ const getCurrentUser = async (req, res, next) => {
     }
 }
 
+const updateAvatar = async (req, res, next) => {
+    try {
+        if (!req.file) return res.status(400).json("a error occured during the upload");
+
+        const uploadedFilePath = req.protocol + "://" + req.get("host") + "/upload/" + req.file.filename;
+
+        const result = await updateOne({avatar: uploadedFilePath}, req.idUser);
+        res.status(200).json({avatar: uploadedFilePath});
+    } catch (err) {
+        next(err);
+    }
+}
+
 const createUser = async (req, res, next) => {
     try {
         const { username, email, role } = req.body;
@@ -71,4 +84,4 @@ const logout = ({res}) => {
     res.clearCookie("access_token").sendStatus(200);
 }
 
-module.exports = { findAll, getCurrentUser, createUser, createFavTrack, login, logout };
+module.exports = { findAll, getCurrentUser, updateAvatar, createUser, createFavTrack, login, logout };
