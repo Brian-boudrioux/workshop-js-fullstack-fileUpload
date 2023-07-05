@@ -1,5 +1,7 @@
 # Workshop Express/React 2/3 : FileUpload Multer
 
+Please check the previous workshop before doing this one : https://github.com/Brian-boudrioux/workshop-js-fullstack-jwt 
+
 ### Install dependencies
 Install the dependencies project with the command:
 
